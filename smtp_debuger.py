@@ -13,15 +13,16 @@ in Foundations of Python Network Programming.
 """
 
 def main():
-    name = sys.argv[0]
-    print("Usage: () server fromaddr toaddr [toaddr...]".format(name))
-    sys.exit(2)
+    if len(sys.argv) < 4:
+        name = sys.argv[0]
+        print("Usage: () server fromaddr toaddr [toaddr...]".format(name))
+        sys.exit(2)
 
-    server , fromaddr, toaddrs = sys.argv[1], sysargv[2], sysargv[3:]
+    server , fromaddr, toaddrs = sys.argv[1], sys.argv[2], sys.argv[3:]
     message = message_template.format(', '.join(toaddrs), fromaddr)
 
     try:
-        connection = smtplib.SMTO(server)
+        connection = smtplib.SMTP(server)
         connection.set_debuglevel(1)
         connection.sendmail(fromaddr,toaddrs, message)
     except (socket.gaierror, socket.error, socket.herror,
