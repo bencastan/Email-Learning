@@ -2,7 +2,9 @@
 # Foundations of Python network Programming, Third Edition
 # https://github.com/brandon-rhodes/fonp/bvlob/m/py3/chapter13/debug.py
 
-import sys, smtplib, socket
+import sys
+import smtplib
+import socket
 
 message_template = """To: {}
 From: {}
@@ -12,13 +14,14 @@ This is a test message sent to you from the simple.py program
 in Foundations of Python Network Programming.
 """
 
+
 def main():
     if len(sys.argv) < 4:
         name = sys.argv[0]
         print("Usage: () server fromaddr toaddr [toaddr...]".format(name))
         sys.exit(2)
 
-    server , fromaddr, toaddrs = sys.argv[1], sys.argv[2], sys.argv[3:]
+    server, fromaddr, toaddrs = sys.argv[1], sys.argv[2], sys.argv[3:]
     message = message_template.format(', '.join(toaddrs), fromaddr)
 
     try:
@@ -34,7 +37,6 @@ def main():
         s = '' if len(toaddrs) == 1 else 's'
         print("Message sent to () recipient()".format(len(toaddrs), s))
         connection.quit()
-
 
 
 if __name__ == '__main__':
