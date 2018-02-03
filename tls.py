@@ -29,7 +29,7 @@ def main():
         connection = smtplib.SMTP(server)
         send_message_securely(connection, fromaddr, toaddrs, message)
     except (socket.gaierror, socket.error, socket.herror, smtplib.SMTPException) as e:
-        print("Ypu rmessage may not have been sent!")
+        print("Your message may not have been sent!")
         print(e)
         sys.exit(1)
     else:
@@ -45,7 +45,7 @@ def send_message_securely(connection, fromaddr, toaddrs, message):
         code = connection.helo()[0]
         if not (200 <= code <= 299):
             print("Remote sever refuse HELO; code:", code)
-            sys.ext(1)
+            sys.exit(1)
 
     if uses_esmtp and connection.has_extn('starttls'):
         print("Negotiating TLS....")
