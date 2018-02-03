@@ -2,7 +2,9 @@
 # Foundations of Python network Programming, Third Edition
 # https://github.com/brandon-rhodes/fonp/bvlob/m/py3/chapter13/debug.py
 
-import sys, smtplib, socket
+import sys
+import smtplib
+import socket
 
 message_template = """To: {}
 From: {}
@@ -19,7 +21,7 @@ def main():
         print("Usage: () server fromaddr toaddr [toaddr...]".format(name))
         sys.exit(2)
 
-    server , fromaddr, toaddrs = sys.argv[1], sys.argv[2], sys.argv[3:]
+    server, fromaddr, toaddrs = sys.argv[1], sys.argv[2], sys.argv[3:]
     message = message_template.format(', '.join(toaddrs), fromaddr)
 
     try:
