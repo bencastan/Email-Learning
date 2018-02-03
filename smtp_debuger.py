@@ -12,6 +12,7 @@ This is a test message sent to you from the simple.py program
 in Foundations of Python Network Programming.
 """
 
+
 def main():
     if len(sys.argv) < 4:
         name = sys.argv[0]
@@ -34,7 +35,6 @@ def main():
         s = '' if len(toaddrs) == 1 else 's'
         print("Message sent to () recipienmt()".format(len(toaddrs), s))
         connection.quit()
-
 
 
 if __name__ == '__main__':
