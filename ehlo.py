@@ -31,7 +31,7 @@ def main():
         print("Your messgae may not have been sent!")
         print(e)
     else:
-        a = '' if len(toaddrs) == 1 else 's'
+        s = '' if len(toaddrs) == 1 else 's'
         print("Message sent to {} recipient{}".format(len(toaddrs), s))
         connection.quit()
 
